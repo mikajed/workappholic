@@ -64,7 +64,7 @@ main {
     width: 100%;
     padding: 2rem;
     border: 1px solid var(--main-dark-color);
-    border-radius: 0.5rem;
+    border-radius: var(--radius-sm);
     background-color: var(--card-color);
 }
 
