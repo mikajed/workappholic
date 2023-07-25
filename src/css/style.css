@@ -14,11 +14,32 @@
 
 body {
     background-color: var(--main-bg-color);
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+hr {
+    background-color: var(--main-dark-color);
+    height:0.15rem;
+    border: none;
+    border-radius: 10px;
+    margin: 2rem 0;
 }
 
 h1 {
-   font-family: sans-serif;
    color: var(--main-dark-color);
+}
+
+main {
+    max-width: 960px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* -- HEADER -- */
@@ -40,8 +61,7 @@ h1 {
 
 /* -- FORM -- */
 .eingabe-window {
-    max-width: 1000px;
-    width: 50%;
+    width: 100%;
     padding: 2rem;
     border: 1px solid var(--main-dark-color);
     border-radius: 0.5rem;
@@ -104,4 +124,40 @@ h1 {
     border-radius: var(--radius-sm);
     border: none;
     padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-main:hover {
+    background-color: var(--main-dark-color);
+    color: var(--main-darker-color);
+}
+
+/* -- OUTPUT SECTION -- */
+.main-output {
+    width: 100%;
+    margin: 3rem 0 0 0;
+}
+
+.date-heading {
+    margin: 1rem 0;
+    color: var(--main-darker-color);
+    font-weight: 700;
+}
+
+.output-window {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    border: 1px solid var(--main-dark-color);
+    border-radius: 0.5rem;
+    background-color: var(--card-color);
+    color: var(--main-darker-color);
+    margin-bottom: 2rem;
+}
+
+.output-window p{
+    padding: 0 2rem 0 0;
+    line-height: 4rem;
 }
