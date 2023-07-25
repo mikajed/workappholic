@@ -1,37 +1,29 @@
 // fetch eingabedaten
 let firma1 = prompt('Firma:');
-console.log(`Firma: ${firma1}`);
-
 let contactperson1 = prompt('Ansprechpartner:');
-console.log(`Ansprechpartner: ${contactperson1}`);
-
 let job1 = prompt('Tätigkeit:');
-console.log(`Tätigkeit: ${job1}`);
-
 let email1 = prompt('E-Mail:');
-console.log(`E-Mail: ${email1}`);
-
-let phone1 = prompt('Telefonnummer:');
-console.log(`Telefonnummer: ${phone1}`);
-
+let phone1 = parseInt(prompt('Telefonnummer:'));
 let datum1 = prompt('Datum (jjjj-mm-tt):');
-console.log(`Datum: ${datum1}`);
+
+console.log(`Firma: ${firma1}
+Ansprechpartner: ${contactperson1}
+Tätigkeit: ${job1}
+E-Mail: ${email1}
+Telefonnummer: ${phone1}
+Datum: ${datum1}`);
 
 
 let firma2 = prompt('Firma:');
-console.log(`Firma: ${firma2}`);
-
 let contactperson2 = prompt('Ansprechpartner:');
-console.log(`Ansprechpartner: ${contactperson2}`);
-
 let job2 = prompt('Tätigkeit:');
-console.log(`Tätigkeit: ${job2}`);
-
 let email2 = prompt('E-Mail:');
-console.log(`E-Mail: ${email2}`);
-
-let phone2 = prompt('Telefonnummer:');
-console.log(`Telefonnummer: ${phone2}`);
-
+let phone2 = parseInt(prompt('Telefonnummer:'));
 let datum2 = prompt('Datum (jjjj-mm-tt):');
-console.log(`Datum: ${datum2}`);
+
+console.log(`Firma: ${firma2}
+Ansprechpartner: ${contactperson2}
+Tätigkeit: ${job2}
+E-Mail: ${email2}
+Telefonnummer: ${phone2}
+Datum: ${datum2}`);
