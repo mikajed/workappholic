@@ -114,7 +114,6 @@ main {
 
 #date {
     color: var(--main-dark-color);
-    text-transform: uppercase;
 }
 
 .btn-main {
