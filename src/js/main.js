@@ -1,29 +1,28 @@
-// fetch eingabedaten
-let firma1 = prompt('Firma:');
-let contactperson1 = prompt('Ansprechpartner:');
-let job1 = prompt('Tätigkeit:');
-let email1 = prompt('E-Mail:');
-let phone1 = parseInt(prompt('Telefonnummer:'));
-let datum1 = prompt('Datum (jjjj-mm-tt):');
+let firma, contactperson, job, email, phone, datum;
 
-console.log(`Firma: ${firma1}
-Ansprechpartner: ${contactperson1}
-Tätigkeit: ${job1}
-E-Mail: ${email1}
-Telefonnummer: ${phone1}
-Datum: ${datum1}`);
+const kontakteingabe = function() {
+    firma = prompt('Firma:');
+    contactperson = prompt('Ansprechpartner:');
+    job = prompt('Tätigkeit:');
+    email = prompt('E-Mail:');
+    phone = parseInt(prompt('Telefonnummer:'));
+    datum = prompt('Datum (jjjj-mm-tt):');
+}
 
+const eintragAusgeben = function(firma, contactperson, job, email, phone, datum) {
+    console.log(`Firma: ${firma}
+Ansprechpartner: ${contactperson}
+Tätigkeit: ${job}
+E-Mail: ${email}
+Telefonnummer: ${phone}
+Datum: ${datum}`);
+}
 
-let firma2 = prompt('Firma:');
-let contactperson2 = prompt('Ansprechpartner:');
-let job2 = prompt('Tätigkeit:');
-let email2 = prompt('E-Mail:');
-let phone2 = parseInt(prompt('Telefonnummer:'));
-let datum2 = prompt('Datum (jjjj-mm-tt):');
+const eintragHinzufuegen = function() {
+    kontakteingabe();
+    eintragAusgeben(firma, contactperson, job, email, phone, datum);
+}
 
-console.log(`Firma: ${firma2}
-Ansprechpartner: ${contactperson2}
-Tätigkeit: ${job2}
-E-Mail: ${email2}
-Telefonnummer: ${phone2}
-Datum: ${datum2}`);
+eintragHinzufuegen();
+eintragHinzufuegen();
+eintragHinzufuegen();
