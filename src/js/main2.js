@@ -12,9 +12,27 @@ const kontaktbuch = {
         neuerEintrag.set('job', prompt('Tätigkeit:'));
         neuerEintrag.set('email', prompt('E-Mail:'));
         neuerEintrag.set('phone', parseInt(prompt('Telefonnummer:')));
-        neuerEintrag.set('datum', new Date(prompt('Datum (jjjj-mm-tt):') + ' 00:00:00'));
+        neuerEintrag.set('datum', this.datumVerarbeiten(prompt('Datum (jjjj-mm-tt):')));
         neuerEintrag.set('timestamp', Date.now()); // für die einzigartigkeit um einen array zu identifizieren
         this.eintraege.push(neuerEintrag);
+    },
+
+    datumVerarbeiten(datum) {
+        if (this.datumValidieren(datum)) {
+            return new Date(`${datum} 00:00:00`);
+        } else {
+            console.log(`Ungültiges Datum: ${datum}`);
+            return false;
+        }
+    },
+
+    datumValidieren(datum) {
+        // regex mithilfe von https://regex101.com/ gemacht
+        if (datum.match(/^\d{4}-\d{2}-\d{2}$/) !== null) {
+            return true;
+        } else {
+            return false;
+        }
     },
 
     ///////////////////////////////////////
@@ -22,7 +40,7 @@ const kontaktbuch = {
     ///////////////////////////////////////
     eintraegeSortieren() {
         this.eintraege.sort(function(eintrag_a, eintrag_b) {
-            if(eintrag_a.get('datum') > eintrag_b.get('datum')) {
+            if (eintrag_a.get('datum') > eintrag_b.get('datum')) {
                 return -1;
             } else if (eintrag_a.get('datum') < eintrag_b.get('datum')) {
                 return 1;
