@@ -1,6 +1,6 @@
 let firma, contactperson, job, email, phone, datum;
 
-const kontakteingabe = function() {
+function kontakteingabe() {
     firma = prompt('Firma:');
     contactperson = prompt('Ansprechpartner:');
     job = prompt('Tätigkeit:');
@@ -9,7 +9,7 @@ const kontakteingabe = function() {
     datum = prompt('Datum (jjjj-mm-tt):');
 }
 
-const eintragAusgeben = function(firma, contactperson, job, email, phone, datum) {
+function eintragAusgeben(firma, contactperson, job, email, phone, datum) {
     console.log(`Firma: ${firma}
 Ansprechpartner: ${contactperson}
 Tätigkeit: ${job}
@@ -18,11 +18,10 @@ Telefonnummer: ${phone}
 Datum: ${datum}`);
 }
 
-const eintragHinzufuegen = function() {
+function eintragHinzufuegen() {
     kontakteingabe();
     eintragAusgeben(firma, contactperson, job, email, phone, datum);
 }
 
-eintragHinzufuegen();
 eintragHinzufuegen();
 eintragHinzufuegen();
