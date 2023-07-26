@@ -10,12 +10,12 @@ function kontakteingabe() {
 }
 
 function eintragAusgeben(firma, contactperson, job, email, phone, datum) {
-    console.log(`Firma: ${firma}
-Ansprechpartner: ${contactperson}
-Tätigkeit: ${job}
-E-Mail: ${email}
-Telefonnummer: ${phone}
-Datum: ${datum}`);
+    console.log(`Firma: ${firma}\n`
+        + `Ansprechpartner: ${contactperson}\n`
+        + `Tätigkeit: ${job}\n`
+        + `E-Mail: ${email}\n`
+        + `Telefonnummer: ${phone}\n`
+        + `Datum: ${datum}`);
 }
 
 function eintragHinzufuegen() {

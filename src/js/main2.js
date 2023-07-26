@@ -12,17 +12,24 @@ const kontaktbuch = {
            datum: prompt('Datum (jjjj-mm-tt):'), 
         });
     },
-    eintragAusgeben() {
-        console.log(`Firma: ${this.neuerEintrag.firma}
-Ansprechpartner: ${this.neuerEintrag.contactperson}
-Tätigkeit: ${this.neuerEintrag.job}
-E-Mail: ${this.neuerEintrag.email}
-Telefonnummer: ${this.neuerEintrag.phone}
-Datum: ${this.neuerEintrag.datum}`);
+    eintraegeAusgeben() {
+        // callback funktion, wird an eine andere funktion übergeben und später
+        // aufgerufen, sobald bestimmte bedingungen erfüllt sind oder ein
+        // ereignis eingetreten ist.
+        // forEach schleife, mit ihr kann man eine aktion für jedes element
+        // des arrays ausführen
+        this.eintraege.forEach(function(eintrag) {
+            console.log(`Firma: ${eintrag.firma}\n`
+                + `Ansprechpartner: ${eintrag.contactperson}\n`
+                + `Tätigkeit: ${eintrag.job}\n`
+                + `E-Mail: ${eintrag.email}\n`
+                + `Telefonnummer: ${eintrag.phone}\n`
+                + `Datum: ${eintrag.datum}`);
+        })
     },
     eintragHinzufuegen() {
         this.kontakteingabe();
-        // this.eintragAusgeben();
+        this.eintraegeAusgeben();
     }
 }
 
