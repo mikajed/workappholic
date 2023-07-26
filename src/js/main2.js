@@ -12,8 +12,9 @@ const kontaktbuch = {
            datum: prompt('Datum (jjjj-mm-tt):'), 
         });
     },
-
-    // datumsortierung - compare function
+    ///////////////////////////////////////
+    // datumsortierung - compare function//
+    ///////////////////////////////////////
     eintraegeSortieren() {
         this.eintraege.sort(function(eintrag_a, eintrag_b) {
             if(eintrag_a.datum > eintrag_b.datum) {
@@ -26,6 +27,9 @@ const kontaktbuch = {
         })
     },
 
+    ///////////////////////////////////////
+    /////// Einträge Cards Ausgabe ////////
+    ///////////////////////////////////////
     eintraegeAusgeben() {
         // konsole reinigen, wird nichts doppelt eingetragen, falls nötig
         console.clear();
