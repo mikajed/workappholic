@@ -3,23 +3,28 @@ const kontaktbuch = {
     eintraege: [],
 
     kontakteingabe() {
-        this.eintraege.push({
-           firma: prompt('Firma:'),
-           contactperson: prompt('Ansprechpartner:'),
-           job: prompt('Tätigkeit:'),
-           email: prompt('E-Mail:'),
-           phone: parseInt(prompt('Telefonnummer:')),
-           datum: prompt('Datum (jjjj-mm-tt):'), 
-        });
+        // Das Map-Objekt enthält Schlüssel-Wert-Paare und merkt sich die ursprüngliche Reihenfolge 
+        // der Schlüssel bei der Einfügung. Jeder Wert (sowohl Objekte als auch primitive Werte) kann 
+        // als Schlüssel oder Wert verwendet werden.
+        let neuerEintrag = new Map();
+        neuerEintrag.set('firma', prompt('Firma:'));
+        neuerEintrag.set('contactperson', prompt('Ansprechpartner:'));
+        neuerEintrag.set('job', prompt('Tätigkeit:'));
+        neuerEintrag.set('email', prompt('E-Mail:'));
+        neuerEintrag.set('phone', parseInt(prompt('Telefonnummer:')));
+        neuerEintrag.set('datum', new Date(prompt('Datum (jjjj-mm-tt):') + ' 00:00:00'));
+        neuerEintrag.set('timestamp', Date.now()); // für die einzigartigkeit um einen array zu identifizieren
+        this.eintraege.push(neuerEintrag);
     },
+
     ///////////////////////////////////////
     // datumsortierung - compare function//
     ///////////////////////////////////////
     eintraegeSortieren() {
         this.eintraege.sort(function(eintrag_a, eintrag_b) {
-            if(eintrag_a.datum > eintrag_b.datum) {
+            if(eintrag_a.get('datum') > eintrag_b.get('datum')) {
                 return -1;
-            } else if (eintrag_a.datum < eintrag_b.datum) {
+            } else if (eintrag_a.get('datum') < eintrag_b.get('datum')) {
                 return 1;
             } else {
                 return 0;
@@ -39,12 +44,16 @@ const kontaktbuch = {
         // forEach schleife, mit ihr kann man eine aktion für jedes element
         // des arrays ausführen
         this.eintraege.forEach(function(eintrag) {
-            console.log(`Firma: ${eintrag.firma}\n`
-                + `Ansprechpartner: ${eintrag.contactperson}\n`
-                + `Tätigkeit: ${eintrag.job}\n`
-                + `E-Mail: ${eintrag.email}\n`
-                + `Telefonnummer: ${eintrag.phone}\n`
-                + `Datum: ${eintrag.datum}`);
+            console.log(`Firma: ${eintrag.get('firma')}\n`
+                + `Ansprechpartner: ${eintrag.get('contactperson')}\n`
+                + `Tätigkeit: ${eintrag.get('job')}\n`
+                + `E-Mail: ${eintrag.get('email')}\n`
+                + `Telefonnummer: ${eintrag.get('phone')}\n`
+                + `Datum: ${eintrag.get('datum').toLocaleDateString('de-DE', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                })}`);
         })
     },
     eintragHinzufuegen() {
@@ -60,6 +69,5 @@ const kontaktbuch = {
     }
 }
 
-kontaktbuch.eintragHinzufuegen();
 kontaktbuch.eintragHinzufuegen();
 console.log(kontaktbuch);
