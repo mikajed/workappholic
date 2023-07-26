@@ -59,6 +59,7 @@ const kontaktbuch = {
 
     htmlEintragErstellen(eintrag) {
         let listenpunkt = document.createElement('li');
+        listenpunkt.classList.add('output-window');
         listenpunkt.setAttribute('data-timestamp', eintrag.get('timestamp'));
 
         let datum = document.createElement('span');
