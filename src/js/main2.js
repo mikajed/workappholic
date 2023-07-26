@@ -12,6 +12,20 @@ const kontaktbuch = {
            datum: prompt('Datum (jjjj-mm-tt):'), 
         });
     },
+
+    // datumsortierung - compare function
+    eintraegeSortieren() {
+        this.eintraege.sort(function(eintrag_a, eintrag_b) {
+            if(eintrag_a.datum > eintrag_b.datum) {
+                return -1;
+            } else if (eintrag_a.datum < eintrag_b.datum) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+    },
+
     eintraegeAusgeben() {
         // konsole reinigen, wird nichts doppelt eingetragen, falls nötig
         console.clear();
@@ -30,8 +44,15 @@ const kontaktbuch = {
         })
     },
     eintragHinzufuegen() {
-        this.kontakteingabe();
-        this.eintraegeAusgeben();
+        let weitererEintrag = true;
+        while(weitererEintrag) {
+            this.kontakteingabe();
+            this.eintraegeSortieren();
+            this.eintraegeAusgeben();
+            weitererEintrag = confirm('Weiteren Eintrag hinzufügen?');
+        }
+        // confirm zeigt einen dialog mit einer optionalen nachricht
+        // und wartet bis der user zusagt oder nicht.
     }
 }
 
