@@ -13,6 +13,8 @@ const kontaktbuch = {
         });
     },
     eintraegeAusgeben() {
+        // konsole reinigen, wird nichts doppelt eingetragen, falls nötig
+        console.clear();
         // callback funktion, wird an eine andere funktion übergeben und später
         // aufgerufen, sobald bestimmte bedingungen erfüllt sind oder ein
         // ereignis eingetreten ist.
@@ -34,5 +36,5 @@ const kontaktbuch = {
 }
 
 kontaktbuch.eintragHinzufuegen();
-// kontaktbuch.eintragHinzufuegen();
+kontaktbuch.eintragHinzufuegen();
 console.log(kontaktbuch);
