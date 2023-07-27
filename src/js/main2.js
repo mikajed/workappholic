@@ -1,19 +1,16 @@
 const kontaktbuch = {
-
     eintraege: [],
 
     kontakteingabe() {
-        // Das Map-Objekt enthält Schlüssel-Wert-Paare und merkt sich die ursprüngliche Reihenfolge 
-        // der Schlüssel bei der Einfügung. Jeder Wert (sowohl Objekte als auch primitive Werte) kann 
-        // als Schlüssel oder Wert verwendet werden.
-        let neuerEintrag = new Map();
-        neuerEintrag.set('firma', prompt('Firma:'));
-        neuerEintrag.set('contact', prompt('Ansprechpartner:'));
-        neuerEintrag.set('job', prompt('Tätigkeit:'));
-        neuerEintrag.set('email', prompt('E-Mail:'));
-        neuerEintrag.set('phone', parseInt(prompt('Telefonnummer:')));
-        neuerEintrag.set('datum', new Date(prompt('Datum (jjjj-mm-tt):') + ' 00:00:00'));
-        neuerEintrag.set('timestamp', Date.now()); // für die einzigartigkeit um einen array zu identifizieren
+        const neuerEintrag = {
+            firma: prompt('Firma:'),
+            contact: prompt('Ansprechpartner:'),
+            job: prompt('Tätigkeit:'),
+            email: prompt('E-Mail:'),
+            phone: parseInt(prompt('Telefonnummer:')),
+            datum: new Date(prompt('Datum (jjjj-mm-tt):') + ' 00:00:00'),
+            timestamp: Date.now() // für die Einzigartigkeit, um einen Array zu identifizieren
+        };
         this.eintraege.push(neuerEintrag);
     },
 
@@ -22,9 +19,9 @@ const kontaktbuch = {
     ///////////////////////////////////////
     eintraegeSortieren() {
         this.eintraege.sort(function(eintrag_a, eintrag_b) {
-            if(eintrag_a.get('datum') > eintrag_b.get('datum')) {
+            if(eintrag_a.datum > eintrag_b.datum) {
                 return -1;
-            } else if (eintrag_a.get('datum') < eintrag_b.get('datum')) {
+            } else if (eintrag_a.datum < eintrag_b.datum) {
                 return 1;
             } else {
                 return 0;
@@ -36,11 +33,11 @@ const kontaktbuch = {
     htmlEintragErstellen(eintrag) {
         let listenpunkt = document.createElement('li');
         listenpunkt.classList.add('output-window');
-        listenpunkt.setAttribute('data-timestamp', eintrag.get('timestamp'));
+        listenpunkt.setAttribute('data-timestamp', eintrag.timestamp);
 
         let datum = document.createElement('span');
         datum.setAttribute('class', 'datum');
-        datum.textContent = eintrag.get('datum').toLocaleDateString('de-DE', {
+        datum.textContent = eintrag.datum.toLocaleDateString('de-DE', {
             year: 'numeric',
             month: '2-digit',
             day: '2-digit'
@@ -49,27 +46,27 @@ const kontaktbuch = {
 
         let firma = document.createElement('span');
         firma.setAttribute('class', 'firma');
-        firma.textContent = eintrag.get('firma');
+        firma.textContent = eintrag.firma;
         datum.insertAdjacentElement('afterend', firma);
 
         let contact = document.createElement('span');
         contact.setAttribute('class', 'contact');
-        contact.textContent = eintrag.get('contact');
+        contact.textContent = eintrag.contact;
         firma.insertAdjacentElement('afterend', contact);
 
         let phone = document.createElement('span');
         phone.setAttribute('class', 'phone');
-        phone.textContent = eintrag.get('phone').toString();
+        phone.textContent = eintrag.phone.toString();
         contact.insertAdjacentElement('afterend', phone);
 
         let email = document.createElement('span');
         email.setAttribute('class', 'email');
-        email.textContent = eintrag.get('email');
+        email.textContent = eintrag.email;
         phone.insertAdjacentElement('afterend', email);
 
         let job = document.createElement('span');
         job.setAttribute('class', 'job');
-        job.textContent = eintrag.get('job');
+        job.textContent = eintrag.job;
         email.insertAdjacentElement('afterend', job);
 
         let button = document.createElement('button');
@@ -85,7 +82,7 @@ const kontaktbuch = {
 
     eintraegeAnzeigen() {
         // checken ob <ul> bereits da ist
-            // wenn ja dann löschen
+        // wenn ja dann löschen
         document.querySelectorAll('.monats-wrapper ul').forEach(function(eintragsliste) {
             eintragsliste.remove();
         });
@@ -111,5 +108,6 @@ const kontaktbuch = {
     }
 }
 
+// Aufruf der Funktion eintragHinzufuegen, um den Prozess zu starten
 kontaktbuch.eintragHinzufuegen();
 console.log(kontaktbuch);
