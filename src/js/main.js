@@ -25,3 +25,30 @@ function eintragHinzufuegen() {
 
 eintragHinzufuegen();
 eintragHinzufuegen();
+
+
+
+///////////////////////////////////////
+    /////// Einträge Cards Ausgabe ////////
+    ///////////////////////////////////////
+    // eintraegeAusgeben() {
+    //     // konsole reinigen, wird nichts doppelt eingetragen, falls nötig
+    //     console.clear();
+    //     // callback funktion, wird an eine andere funktion übergeben und später
+    //     // aufgerufen, sobald bestimmte bedingungen erfüllt sind oder ein
+    //     // ereignis eingetreten ist.
+    //     // forEach schleife, mit ihr kann man eine aktion für jedes element
+    //     // des arrays ausführen
+    //     this.eintraege.forEach(function(eintrag) {
+    //         console.log(`Firma: ${eintrag.get('firma')}\n`
+    //             + `Ansprechpartner: ${eintrag.get('contactperson')}\n`
+    //             + `Tätigkeit: ${eintrag.get('job')}\n`
+    //             + `E-Mail: ${eintrag.get('email')}\n`
+    //             + `Telefonnummer: ${eintrag.get('phone')}\n`
+    //             + `Datum: ${eintrag.get('datum').toLocaleDateString('de-DE', {
+    //                 year: 'numeric',
+    //                 month: '2-digit',
+    //                 day: '2-digit'
+    //             })}`);
+    //     })
+    // },
