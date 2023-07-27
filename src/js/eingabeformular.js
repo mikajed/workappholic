@@ -1,22 +1,24 @@
 const eingabeformular = {
 
+    formular: null,
+
     formulardatenHolen(e) {
         return {
             firma: e.target.elements.firma.value,
-            contact: e.target.elements.ansprechpartner.value, 
+            contact: e.target.elements.ansprechpartner.value,
             job: e.target.elements.taetigkeit.value,
-            email: e.target.elements.email.value, 
+            email: e.target.elements.email.value,
             phone: e.target.elements.telefon.value,
-            datum: e.target.elements.date.valueAsDate
-        }
+            datum: e.target.elements.date.value
+        };
     },
 
-    absenden(eingabeformular) {
-        eingabeformular.querySelector('#eingabeformular').addEventListener('submit', e => {
+    absenden(formular) {
+        formular.addEventListener('submit', e => {
             e.preventDefault();
-            console.log(e);
             let formulardaten = this.formulardatenHolen(e);
-            console.log(formulardaten);
+            kontaktbuch.eintragHinzufuegen(formulardaten);
+            formular.reset();
         });
     },
 
@@ -42,7 +44,9 @@ const eingabeformular = {
         </form>
     </div>`;
 
-    this.absenden(eingabeformular);
+    this.formular = eingabeformular.querySelector('form');
+
+    this.absenden(this.formular);
 
     return eingabeformular;
     },
@@ -50,5 +54,4 @@ const eingabeformular = {
     anzeigen() {
         document.querySelector('.navbar').insertAdjacentElement('afterend', this.htmlErstellen());
     }
-
 }
