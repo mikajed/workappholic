@@ -1,25 +1,23 @@
 const kontaktbuch = {
     eintraege: [],
 
-    kontakteingabe() {
+    kontakteingabe(formulardaten) {
         const neuerEintrag = {
-            firma: prompt('Firma:'),
-            contact: prompt('Ansprechpartner:'),
-            job: prompt('Tätigkeit:'),
-            email: prompt('E-Mail:'),
-            phone: parseInt(prompt('Telefonnummer:')),
-            datum: new Date(prompt('Datum (jjjj-mm-tt):') + ' 00:00:00'),
-            timestamp: Date.now() // für die Einzigartigkeit, um einen Array zu identifizieren
+            firma: formulardaten.firma,
+            contact: formulardaten.contact,
+            job: formulardaten.job,
+            email: formulardaten.email,
+            phone: parseInt(formulardaten.phone),
+            datum: new Date(formulardaten.datum + ' 00:00:00'),
+            timestamp: Date.now()
         };
         this.eintraege.push(neuerEintrag);
     },
 
-    ///////////////////////////////////////
-    // datumsortierung - compare function//
-    ///////////////////////////////////////
+    // datumsortierung - compare function
     eintraegeSortieren() {
-        this.eintraege.sort(function(eintrag_a, eintrag_b) {
-            if(eintrag_a.datum > eintrag_b.datum) {
+        this.eintraege.sort(function (eintrag_a, eintrag_b) {
+            if (eintrag_a.datum > eintrag_b.datum) {
                 return -1;
             } else if (eintrag_a.datum < eintrag_b.datum) {
                 return 1;
@@ -29,7 +27,6 @@ const kontaktbuch = {
         })
     },
 
-    // DOM (document object model) fängt hier an
     htmlEintragErstellen(eintrag) {
         let listenpunkt = document.createElement('li');
         listenpunkt.classList.add('output-window');
@@ -81,9 +78,7 @@ const kontaktbuch = {
     },
 
     eintraegeAnzeigen() {
-        // checken ob <ul> bereits da ist
-        // wenn ja dann löschen
-        document.querySelectorAll('.monats-wrapper ul').forEach(function(eintragsliste) {
+        document.querySelectorAll('.monats-wrapper ul').forEach(function (eintragsliste) {
             eintragsliste.remove();
         });
 
@@ -94,16 +89,9 @@ const kontaktbuch = {
         document.querySelector('.monats-wrapper').insertAdjacentElement('afterbegin', eintragsliste);
     },
 
-    eintragHinzufuegen() {
-        let weitererEintrag = true;
-        while(weitererEintrag) {
-            this.kontakteingabe();
-            // methodenaufrufe anpassen
-            this.eintraegeSortieren();
-            this.eintraegeAnzeigen();
-            weitererEintrag = confirm('Weiteren Eintrag hinzufügen?');
-        }
-        // confirm zeigt einen dialog mit einer optionalen nachricht
-        // und wartet bis der user zusagt oder nicht.
+    eintragHinzufuegen(formulardaten) {
+        this.kontakteingabe(formulardaten);
+        this.eintraegeSortieren();
+        this.eintraegeAnzeigen();
     }
 }
