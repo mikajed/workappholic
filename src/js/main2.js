@@ -32,6 +32,7 @@ const kontaktbuch = {
         })
     },
 
+    // DOM (document object model) fängt hier an
     htmlEintragErstellen(eintrag) {
         let listenpunkt = document.createElement('li');
         listenpunkt.classList.add('output-window');
