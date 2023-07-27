@@ -163,6 +163,15 @@ main {
     line-height: 4rem;
 }
 
+.output-window span {
+    padding-right: 1rem;
+    border-right: 1px solid var(--main-dark-color);
+}
+
+.output-window span:nth-last-child(1) {
+    border-right: none;
+}
+
 .trash {
     border-style: none;
 }
