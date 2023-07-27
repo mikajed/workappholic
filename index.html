@@ -5,34 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>workappholic</title>
     <link rel="stylesheet" href="./src/css/style.css">
-    <script src="./src/js/main2.js" defer></script>
-    <link rel="stylesheet" href="./src/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header class="navbar">
         <a href="#"><img src="./src/images/logo.png" alt="workappholic logo"></a>
     </header>
     <main>
-        <!-- Eingabe Section -->
-        <section class="main-input">
-            <div class="eingabe-window">
-                <form action="" class="main-form">
-                    <div class="form-left">
-                        <input type="text" id="firma" name="firma" placeholder="Firma" required>
-                        <input type="text" id="ansprechpartner" name="ansprechpartner" placeholder="Ansprechpartner" required>
-                        <input type="text" id="taetigkeit" name="taetigkeit" placeholder="Tätigkeit" required>
-                    </div>
-                    <div class="form-right">
-                        <input type="email" id="email" name="email" placeholder="E-Mail" required>
-                        <input type="tel" id="telefon" name="telefon" placeholder="Telefon" required>
-                        <!-- <input type="text" id="date" name="date" placeholder="Datum" required> -->
-                        <input type="date" id="date" name="date" placeholder="Datum" required>
-                        <!-- <input type="submit" id="btn-submit" value="HINZUFÜGEN"> -->
-                        <button class="btn-main">HINZUFÜGEN</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+        <!-- Eingabe Section in eingabeformular.js -->
 
         <!-- Ausgabe Section -->
         <section class="main-output">
@@ -53,6 +32,9 @@
             </article>
         </section>
     </main>
+    <script src="./src/js/kontaktbuch.js"></script>
+    <script src="./src/js/eingabeformular.js"></script>
+    <script src="./src/js/main2.js"></script>
     <script src="./src/fontawesome/all.min.js"></script>
 </body>
 </html>

@@ -34,8 +34,8 @@ h1 {
 }
 
 main {
-    max-width: 960px;
     width: 100%;
+    max-width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,11 +53,13 @@ main {
 }
 
 /* -- MAIN INPUT SECTION -- */
-.main-input {
+#main-input {
     width: 100%;
+    max-width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 2rem;
 }
 
 /* -- FORM -- */
@@ -146,8 +148,10 @@ main {
 }
 
 .output-window {
+    width: 100%;
+    max-width: 1200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 1rem 1.5rem;
     border: 1px solid var(--main-dark-color);
@@ -158,17 +162,14 @@ main {
     list-style-type: none;
 }
 
-.output-window p{
-    padding: 0 2rem 0 0;
-    line-height: 4rem;
-}
-
 .output-window span {
-    padding-right: 1rem;
+    width: 100%;
+    padding: 0.2rem;
+    text-align: center;
     border-right: 1px solid var(--main-dark-color);
 }
 
-.output-window span:nth-last-child(1) {
+.output-window span:nth-last-child(2) {
     border-right: none;
 }
 
