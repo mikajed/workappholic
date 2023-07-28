@@ -13,14 +13,18 @@ const eingabeformular = {
         };
     },
 
-    absenden(formular) {
-        formular.addEventListener('submit', e => {
-            e.preventDefault();
-            let formulardaten = this.formulardatenHolen(e);
-            kontaktbuch.eintragHinzufuegen(formulardaten);
-            formular.reset();
-        });
+    absenden() {
+        if (!this.formular.hasAttribute('data-event-listener-attached')) {
+            this.formular.addEventListener('submit', e => {
+                e.preventDefault();
+                let formulardaten = this.formulardatenHolen(e);
+                kontaktbuch.eintragHinzufuegen(formulardaten);
+                this.formular.reset();
+            });
+            this.formular.setAttribute('data-event-listener-attached', 'true');
+        }
     },
+    
 
     htmlErstellen() {
         let eingabeformular = document.createElement('section');
