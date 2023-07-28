@@ -14,6 +14,16 @@ const kontaktbuch = {
         this.eintraege.push(neuerEintrag);
     },
 
+    eintragEntfernen(timestamp) {
+        for (let i = this.eintraege.length - 1; i >= 0; i--) {
+            if (this.eintraege[i].timestamp === parseInt(timestamp)) { 
+                this.eintraege.splice(i, 1);
+                this.eintraegeAnzeigen();
+                return; // Exit the loop after removing the entry
+            }
+        }
+    },
+
     // datumsortierung - compare function
     eintraegeSortieren() {
         this.eintraege.sort(function (eintrag_a, eintrag_b) {
@@ -74,7 +84,16 @@ const kontaktbuch = {
         icon.setAttribute('class', 'fas fa-trash');
         button.insertAdjacentElement('afterbegin', icon);
 
+        this.eintragEntfernenEvent(listenpunkt);
+
         return listenpunkt;
+    },
+
+    eintragEntfernenEvent(listenpunkt) {
+        listenpunkt.querySelector('.trash').addEventListener('click', (e) => {
+            let timestamp = e.target.parentElement.getAttribute('data-timestamp');
+            this.eintragEntfernen(timestamp);
+        });
     },
 
     eintraegeAnzeigen() {
