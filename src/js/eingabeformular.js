@@ -25,7 +25,6 @@ const eingabeformular = {
         }
     },
     
-
     htmlErstellen() {
         let eingabeformular = document.createElement('section');
         eingabeformular.setAttribute('id', 'main-input');

@@ -32,7 +32,6 @@ const kontaktbuch = {
         }
     },
     
-
     // datumsortierung - compare function
     eintraegeSortieren() {
         this.eintraege.sort(function (eintrag_a, eintrag_b) {
@@ -103,7 +102,6 @@ const kontaktbuch = {
         return listenpunkt;
     },
     
-
     eintragEntfernenEvent(listenpunkt) {
         listenpunkt.querySelector('.trash').addEventListener('click', (e) => {
             let timestamp = e.target.parentElement.getAttribute('data-timestamp');
@@ -130,8 +128,6 @@ const kontaktbuch = {
         console.log('Entries after displaying:', this.eintraege);
     },
     
-    
-
     speichern() {
         console.log('Saving to Local Storage:', this.eintraege);
         localStorage.setItem('eintraege', JSON.stringify(this.eintraege));
@@ -150,7 +146,6 @@ const kontaktbuch = {
         }
     },
     
-
     eintragHinzufuegen(formulardaten) {
         this.kontakteingabe(formulardaten);
         this.eintraegeSortieren();
