@@ -1,5 +1,9 @@
+function onPageLoad() {
+    kontaktbuch.laden();
+    kontaktbuch.eintraegeAnzeigen();
+}
+
+window.addEventListener('load', onPageLoad);
+
 eingabeformular.anzeigen();
 eingabeformular.absenden();
-// Aufruf der Funktion eintragHinzufuegen, um den Prozess zu starten
-// kontaktbuch.eintragHinzufuegen();
-console.log(kontaktbuch);
