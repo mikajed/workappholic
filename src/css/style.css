@@ -112,11 +112,12 @@ main {
 }
 
 ::placeholder {
-    color: var(--main-dark-color);
+    color: var(--main-darker-color);
 }
 
 #date {
     color: var(--main-dark-color);
+    padding: 0 0.5rem;
 }
 
 .btn-main {
