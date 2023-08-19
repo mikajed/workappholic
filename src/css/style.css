@@ -179,4 +179,5 @@ main {
     height: 2rem;
     border-style: none;
     background: none;
+    cursor: pointer;
 }
