@@ -175,9 +175,8 @@ main {
 }
 
 .trash {
-    width: 2rem;
-    height: 2rem;
     border-style: none;
     background: none;
     cursor: pointer;
+    color: red;
 }
